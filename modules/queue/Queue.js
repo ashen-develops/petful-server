@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 class Queue {
   constructor() {
     // Set initial data.
@@ -20,4 +21,4 @@ class Queue {
   }
 }
 
-module.exports = Queue
+module.exports = Queue;
