@@ -8,9 +8,11 @@ const { NODE_ENV, CLIENT_ORIGIN } = require('../../config');
 
 const app = express();
 
-app.use(cors({
-  origin: CLIENT_ORIGIN,
-}));
+// app.use(cors({
+//   origin: CLIENT_ORIGIN,
+// }));
+
+app.use(cors( ));
 
 const morganOption = (NODE_ENV === 'production') ? 'tiny' : 'common';
 app.use(morgan(morganOption));
