@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 const Queue = require('../queue/Queue');
 const store = require('../../store');
 
@@ -13,16 +12,16 @@ store.people.forEach(person => people.enqueue(person));
 module.exports = {
   get() {
     // Return all people in the queue.
+    console.log(people.all());
     return people.all();
   },
 
   enqueue(person) {
-    // Add a person to the queue.
+    // console.log(people.enqueue(person));
     return people.enqueue(person);
   },
 
   dequeue(person) {
-    // Remove a person from the queue.
     return people.dequeue(person);
   }
 };
