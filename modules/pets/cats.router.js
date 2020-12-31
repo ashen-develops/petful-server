@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 const express = require('express');
-const cats = require('../../store/cats-array');
+const cats = require('../../store/cats');
 const Queue = require('../queue/Queue');
 
 const catsRouter = express.Router();
