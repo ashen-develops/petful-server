@@ -231,8 +231,8 @@ module.exports = {
       age: 500,
       gender: 'Male',
       breed: 'Shorthair',
-      description: "He's a little black kitty",
+      description: 'He\'s a little black kitty',
       story: 'sentenced to spend 100 years as a cat by the Witches Council as punishment for attempting to take over the world.'
-}
+    }
   ]
 };

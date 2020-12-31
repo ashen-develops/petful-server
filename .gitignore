@@ -1,2 +1,5 @@
 /node_modules
 .env
+
+./modules/pets/pets.router.js
+./modules/pets/pets.service.js
