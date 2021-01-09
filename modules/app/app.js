@@ -7,6 +7,8 @@ app.use(cors( )
 );
 
 app.use('/people', require('../people/people.router'));
-app.use('/pets', require('../pets/pets.router'));
+app.use('/dogs', require('../pets/dogs.router'));
+app.use('/cats', require('../pets/cats.router'));
+
 
 module.exports = app;

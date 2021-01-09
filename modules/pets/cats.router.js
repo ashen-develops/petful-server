@@ -6,7 +6,7 @@ const Queue = require('../queue/Queue');
 const catsRouter = express.Router();
 const catQueue = new Queue();
 
-cats.forEach((cat) => catQueue.enqueue(cat));
+cats.forEach(cat => catQueue.enqueue(cat));
 
 catsRouter
   .route('/')

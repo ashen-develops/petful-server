@@ -56,16 +56,5 @@ class Queue {
   }
 }
 
-// Return all items in the queue.
-//     let node = this.first;
-//     while (node !== null) {
-//       console.log(node.value);
-//       node = node.next;
-//     }
-//   }
-// }
-//or
-
-
 module.exports = Queue;
 

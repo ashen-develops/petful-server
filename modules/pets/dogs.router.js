@@ -1,11 +1,11 @@
 const express = require('express');
-const dogs = require('../../store/dogs-array');
+const dogs = require('../../store/dogs');
 const Queue = require('../queue/Queue');
 
 const dogsRouter = express.Router();
 const dogQueue = new Queue();
 
-dogs.forEach((dog) => dogQueue.enqueue(dog));
+dogs.forEach(dog => dogQueue.enqueue(dog));
 
 dogsRouter
   .route('/')

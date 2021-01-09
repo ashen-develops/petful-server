@@ -1,31 +1,35 @@
+  
 const express = require('express');
-const json = require('body-parser').json();
+const xss = require('xss');
+const jsonBodyParser = express.json();
+const people = require('../../store/people');
+const Queue = require('../queue/Queue');
 
-const People = require('./people.service');
-const peopleService = require('./people.service');
+const usersRouter = express.Router();
+const userQueue = new Queue();
 
-const router = express.Router();
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+}
 
-router.get('/', (req, res) => {
-  // Return all the people currently in the queue.
-  // const people = peopleService.get();
-  // if (!People) {
-  //   return res.status(400).error({
-  //     error: 'No People'
-  //   });
-  // }
-  return res
-    .status(200)
-    .json(People.get());
-});
+usersRouter
+  .route('/')
+  .get((req, res, next) => {
+    shuffleArray(people);
+    res.status(200).json(people);
+  })
+  .post(jsonBodyParser, (req, res, next) => {
+    if(!req.body.name){
+      res.status(400).json('Name not included in body');
+    }
+    let newUser = xss(req.body.name);
+    people.push(newUser);
+    res.status(201).json(newUser);
+  });
 
-router.post('/', json, (req, res) => {
-  // Add a new person to the queue.
-  const { person } = req.body;
-  People.enqueue(person);
-  res
-    .status(201)
-    .json({ message : 'person added'});
-});
-
-module.exports = router;
+module.exports = usersRouter;
