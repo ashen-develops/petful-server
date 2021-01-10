@@ -24,12 +24,15 @@ usersRouter
     res.status(200).json(people);
   })
   .post(jsonBodyParser, (req, res, next) => {
+    // console.log(req.body.name)
     if(!req.body.name){
       res.status(400).json('Name not included in body');
     }
-    let newUser = xss(req.body.name);
-    people.push(newUser);
-    res.status(201).json(newUser);
+    else {
+      let newUser = xss(req.body.name);
+      people.push(newUser);
+      res.status(201).json(newUser);
+    }
   });
 
 module.exports = usersRouter;

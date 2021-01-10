@@ -10,6 +10,7 @@ dogs.forEach(dog => dogQueue.enqueue(dog));
 dogsRouter
   .route('/')
   .get((req, res, next) => {
+    // console.log(dogQueue.first.value)
     res.status(200).json(dogQueue.first.value);
   })
   .delete((req, res, next) => {
