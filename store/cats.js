@@ -8,7 +8,7 @@ const cats = [
     breed: 'Warlock',
     description: "He's currently a little black kitty",
     story: 'sentenced to spend 100 years as a cat by the Witches Council as punishment for attempting to take over the world.'
-  },
+},
   {
     age: 2,
     breed: 'Bengal',
@@ -235,6 +235,8 @@ const cats = [
     name: 'Vince the Pince',
     story: 'Found in neighborhood'
   },
+
+  
  
 ]
 
