@@ -1,21 +1,26 @@
-/* eslint-disable no-unused-vars */
-const express = require('express');
-const cats = require('../../store/cats');
-const Queue = require('../queue/Queue');
+const express = require('express')
+// const xss = require('xss')
+// const jsonBodyParser = express.json()
+const Queue = require('../queue/Queue')
+const cats = require('../../store/cats')
 
-const catsRouter = express.Router();
-const catQueue = new Queue();
+const catsRouter = express.Router()
+const catQueue = new Queue()
 
-cats.forEach(cat => catQueue.enqueue(cat));
+cats.forEach(cat => catQueue.enqueue(cat))
+
 
 catsRouter
   .route('/')
   .get((req, res, next) => {
-    res.status(200).json(catQueue.first.value);
+    console.log(catQueue.first.value, "catQueue")
+    FirstCat = catQueue.first.value
+    res.status(200).json(FirstCat)
   })
   .delete((req, res, next) => {
-    catQueue.enqueue(catQueue.dequeue());
-    res.status(200).json(catQueue.dequeue());
-  });
+    AdoptedCat = catQueue.dequeue()
+    catQueue.enqueue(AdoptedCat)
+    res.status(200).json(AdoptedCat)
+  })
 
-module.exports = catsRouter;
+module.exports = catsRouter

@@ -108,6 +108,7 @@ const dogs = [
     name: 'Tim',
     story: 'Found in neighborhood'
   }
+  
 ];
 
 module.exports = dogs;

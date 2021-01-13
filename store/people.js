@@ -1,8 +1,8 @@
-
 const people = [
   'Randy Lahey',
   'Trevor Cory',
-  'Jim Lahey'
+  'Jim Lahey',
+  'Tommy Tops'
 ];
 
 module.exports = people;
